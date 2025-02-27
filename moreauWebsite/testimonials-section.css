@@ -1,0 +1,101 @@
+#testimonials-section{
+    background-color: var(--qode-background-dark-color);
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid white;
+}
+
+.testimonials-container{
+    height: 100%;
+    position: relative;
+}
+
+.top-section-head{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 55px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.top-section-head span:first-child{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--qode-header-light-color);
+}
+.top-section-head span:nth-child(2){
+    display: inline-block;
+    font-family: "IBM Plex Mono", sans-serif;
+    font-size: 14px;text-transform: uppercase;
+}
+
+.testimonials-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.all-test-cards {
+    display: flex;
+    gap: 20px;
+    cursor: grab;
+    transition: transform 0.5s ease;
+    max-width: 1000px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.testimonials-card{
+    display: flex;
+    min-width: 100%;
+    gap: 24px;
+    margin: 100px auto;
+    margin-bottom: 150px;
+    user-select: none;
+}
+
+.testimonials-text{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.testimonials-text p{
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+    color: var(--qode-header-light-color);
+    font-size: 30px;
+    line-height: 1.33333em;
+    letter-spacing: -.01em;
+    text-transform: none;
+    word-wrap: break-word;
+}
+.testimonials-info{
+    display: flex;
+    flex-direction: column;
+}
+.testimonials-info span:nth-child(1){
+    display: inline-block;
+    font-size: 22px;
+    font-family: 'Lexend', sans-serif;
+
+}
+.testimonials-info span:nth-child(2){
+    display: inline-block;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', sans-serif;
+    text-transform: uppercase;
+
+}
+
+.count-track{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 55px;
+    width: 100%;
+    padding-bottom: 0;
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-size: 14px;
+}

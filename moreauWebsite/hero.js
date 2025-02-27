@@ -1,0 +1,197 @@
+/*----------Cursor Animation --------------*/
+
+const body = document.querySelector('body');
+const spotlightElements = document.querySelectorAll('.spotlight, .port-spotlight, .link-spotlight, .footer-spotlight');
+const containers = document.querySelectorAll('#hero, .port-last-img, .video-link-section, .logo-main-footer');
+
+let lastMouseX = 0;
+let lastMouseY = 0;
+
+// Function to update spotlight position
+function updateSpotlight(x, y) {
+    containers.forEach((container, index) => {
+        const spotlight = spotlightElements[index];
+        const rect = container.getBoundingClientRect();
+
+        const spotlightX = x - rect.left - spotlight.offsetWidth / 2;
+        const spotlightY = y - rect.top - spotlight.offsetHeight / 2;
+
+        spotlight.style.left = `${spotlightX}px`;
+        spotlight.style.top = `${spotlightY}px`;
+
+        if (
+            x >= rect.left &&
+            x <= rect.right &&
+            y >= rect.top &&
+            y <= rect.bottom
+        ) {
+            spotlight.style.opacity = '1';
+            spotlight.style.transform = 'scale(1)';
+        } else {
+            spotlight.style.opacity = '0';
+            spotlight.style.transform = 'scale(0.5)';
+        }
+    });
+}
+
+// Update spotlight on mouse move
+body.addEventListener('mousemove', (e) => {
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+    updateSpotlight(lastMouseX, lastMouseY);
+});
+
+// Update spotlight on scroll (keeps position after scroll)
+window.addEventListener('scroll', () => {
+    updateSpotlight(lastMouseX, lastMouseY);
+});
+
+
+/*----------Cursor Animation --------------*/
+
+
+
+
+
+/*----------Cousel Animation --------------*/
+const track = document.querySelector('.all-test-cards');
+const countTrack = document.querySelector('.count-track');
+const cards = document.querySelectorAll('.testimonials-card');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+let currentIndex = 0;
+
+const totalCards = cards.length;
+
+// Clone First & Last Card (for smooth infinite loop)
+const firstClone = cards[0].cloneNode(true);
+const lastClone = cards[cards.length - 1].cloneNode(true);
+
+track.appendChild(firstClone);
+track.insertBefore(lastClone, track.firstChild);
+
+// After cloning, update total length
+const actualCardCount = totalCards + 2; // Original + 2 clones
+let cardWidth = cards[0].offsetWidth + 20; // include margin/gap
+
+// Scroll to first real card initially (skip the clone)
+track.scrollLeft = cardWidth;
+
+// Drag Events
+track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    track.classList.add('grabbing');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+});
+
+track.addEventListener('mouseleave', () => {
+    isDown = false;
+    track.classList.remove('grabbing');
+});
+
+track.addEventListener('mouseup', () => {
+    isDown = false;
+    track.classList.remove('grabbing');
+    snapToNearestCard();
+});
+
+track.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2; // speed
+    track.scrollLeft = scrollLeft - walk;
+});
+
+// Snap to nearest card (with infinite logic)
+function snapToNearestCard() {
+    cardWidth = document.querySelector('.testimonials-card').offsetWidth + 20;
+    const nearestIndex = Math.round(track.scrollLeft / cardWidth);
+    currentIndex = nearestIndex - 1; // exclude left clone from index
+    updateCounter();
+
+    gsap.to(track, {
+        scrollLeft: nearestIndex * cardWidth,
+        duration: 0.5,
+        ease: 'power2.out',
+        onComplete: checkInfiniteWrap
+    });
+}
+
+// Check if we are on clone, jump instantly (loop magic)
+function checkInfiniteWrap() {
+    if (currentIndex < 0) {
+        // Wrapped to left clone -> Jump to last real card
+        currentIndex = totalCards - 1;
+        track.scrollLeft = (currentIndex + 1) * cardWidth; // +1 because of clone
+    } else if (currentIndex >= totalCards) {
+        // Wrapped to right clone -> Jump to first real card
+        currentIndex = 0;
+        track.scrollLeft = cardWidth; // skip left clone
+    }
+    updateCounter();
+}
+
+// Update counter
+function updateCounter() {
+    countTrack.innerText = `${(currentIndex + 1)} / ${totalCards}`;
+}
+
+// Initial counter update
+updateCounter();
+
+
+/*----------Cousel Animation --------------*/
+
+
+
+
+/*----------text on image Animation --------------*/
+const textOnImage = document.querySelector('.port-last-img-1');
+const cursorText = document.querySelector('.text-on-img-1');
+const line1 = document.querySelector('.text-on-img-1 .line1');
+const line2 = document.querySelector('.text-on-img-1 .line2');
+
+// Initial state setup (optional, to make sure it's clean)
+gsap.set(cursorText, { opacity: 0 });
+gsap.set([line1], { width: 0, visibility: 'hidden' });
+
+textOnImage.addEventListener('mouseenter', () => {
+    // Show the cursor text
+    gsap.to(cursorText, { opacity: 1, duration: 0.2 });
+
+    // Animate the first line
+    gsap.set(line1, { visibility: 'visible' });
+    gsap.to(line1, { width: '100%', duration: 0.2, ease: 'power2.out' });
+
+    // Animate the second line after the first finishes
+    gsap.delayedCall(0.2, () => {
+        // gsap.set(line2, { visibility: 'visible' });
+        gsap.to(line2, { width: '60%', duration: 0.2, ease: 'power2.out' });
+    });
+});
+
+textOnImage.addEventListener('mousemove', (e) => {
+    const rect = textOnImage.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    gsap.to(cursorText, { left: x, top: y, duration: 0.1, ease: 'none' });
+});
+
+textOnImage.addEventListener('mouseleave', () => {
+    // Hide cursor text
+    gsap.to(cursorText, { opacity: 0, duration: 0.2 });
+
+    // Shrink the lines back to 0 and then hide them
+    gsap.to([line1, line2], { width: 0, duration: 0.4, ease: 'power2.in' });
+
+    gsap.delayedCall(0.5, () => {
+        gsap.set([line1], { visibility: 'hidden' });
+    });
+});
+
+/*----------text on image Animation --------------*/

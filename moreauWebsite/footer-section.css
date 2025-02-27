@@ -1,0 +1,123 @@
+.main-footer {
+    background-color: var( --qode-background-dark-color);
+    color: #fff;
+    padding: 50px 5%;
+    font-family: 'IBM Plex Mono', sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #fff;
+}
+
+.subscribe form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscribe input {
+    padding: 10px;
+    flex: 1;
+    border: none;
+    border-radius: 4px;
+}
+
+.subscribe button {
+    background-color: #3b44cd;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.subscribe button:hover {
+    background-color: #3b44cd;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.logo-main-footer {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.logo-main-footer img{
+    width: 100%;
+}
+
+/*----------Cursor Animation --------------*/
+
+.footer-spotlight{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    background: radial-gradient(circle, rgb(255, 255, 255) 30%, rgba(255, 255, 255) 60%, rgba(255, 255, 255, 0.1) 100%);
+filter: blur(25px);
+box-shadow: 0 0 120px 40px rgba(255, 255, 255, 0.4);
+    filter: blur(30px);
+    opacity: 1;
+    transition: left 0.5s ease-out, top 0.5s ease-out, opacity 1.5s ease-in-out;
+    animation: upDown 10s ease-in-out infinite;
+    z-index: 9999;
+}
+
+@keyframes upDown {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-16px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+/*----------Cursor Animation --------------*/
+

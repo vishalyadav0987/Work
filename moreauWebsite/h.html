@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnetic Hover Image Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #111;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .navlink-wrapper {
+            display: flex;
+            gap: 50px;
+        }
+
+        .hover-link {
+            position: relative;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hover-image {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            filter: blur(30px) brightness(1.2);
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            transition: filter 0.3s ease-out;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="navlink-wrapper">
+    <a href="#" class="hover-link" data-image="./assets/h1-icon-img4.jpg">Home</a>
+    <a href="#" class="hover-link" data-image="./assets/h1-icon-img4.jpg">About</a>
+    <a href="#" class="hover-link" data-image="./assets/h1-icon-img4.jpg">Contact</a>
+
+    <div class="hover-image"></div>
+</div>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+    const links = document.querySelectorAll('.hover-link');
+    const hoverImage = document.querySelector('.hover-image');
+
+    links.forEach(link => {
+        link.addEventListener('mouseenter', (e) => {
+            const imageSrc = link.getAttribute('data-image');
+            hoverImage.style.backgroundImage = `url(${imageSrc})`;
+
+            gsap.set(hoverImage, {
+                opacity: 1,
+                scale: 0.5,
+                filter: 'blur(20px) brightness(1.5)'
+            });
+
+            gsap.to(hoverImage, {
+                scale: 1,
+                duration: 0.5,
+                ease: 'power2.out',
+                filter: 'blur(5px) brightness(1)'
+            });
+
+            window.addEventListener('mousemove', moveImage);
+        });
+
+        link.addEventListener('mouseleave', () => {
+            gsap.to(hoverImage, {
+                opacity: 0,
+                scale: 0.5,
+                duration: 0.5,
+                ease: 'power3.out',
+                filter: 'blur(30px) brightness(1.2)'
+            });
+
+            window.removeEventListener('mousemove', moveImage);
+        });
+    });
+
+    function moveImage(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        gsap.to(hoverImage, {
+            x: x,
+            y: y,
+            duration: 0.3,
+            ease: 'power3.out'
+        });
+    }
+</script>
+
+</body>
+</html>

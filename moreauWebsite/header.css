@@ -1,0 +1,113 @@
+:root {
+    --qode-main-color: #3b44cd;
+    --qode-text-color: #171717;
+    --qode-heading-color: #171717;
+    --qode-white-color: #fff;
+    --qode-black-color: #000;
+    --qode-gray-color: #b1b1b1;
+    --qode-dark-color: #171717;
+    --qode-background-color: #fff;
+    --qode-background-light-color: #f5f5f5;
+    --qode-background-black-color: #000;
+    --qode-background-dark-color: #171717;
+    --qode-text-bg-revert-color: #fff;
+    --qode-heading-bg-revert-color: #fff;
+    --qode-border-color: #e2e2e2;
+    --qode-header-light-color: #ffffff;
+    --qode-header-light-hover-color: #b1b1b1;
+    --qode-header-dark-color: #171717;
+    --qode-header-dark-hover-color: #3d3d3d;
+    --qode-header-height: 96px;
+    --qode-top-bar-height: 0px;
+    --qode-admin-bar-height: 0px;
+    --qode-height-custom-offset: 0px;
+    --qode-mobile-header-height: 70px
+}
+
+
+/******************* header css *********************/
+#header{
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--qode-background-dark-color);
+    transition: all 0.3s;
+}
+.header-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 48px;
+}
+
+.mode-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--qode-white-color);
+    padding: 6px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.mode-box svg {
+    fill: var(--qode-white-color);
+}
+
+.navlinks{
+    width: 60%;
+}
+
+.navlinks ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", sans-serif;
+    text-transform: uppercase;
+}
+.navlinks ul li a{
+    position: relative;
+    z-index: 100;
+    padding: 2px 5px;
+}
+
+.navlinks ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: white;
+    width: 0%;
+    transition: width 0.4s ease;
+    z-index: -1;
+   
+}
+
+.navlinks ul li:hover a::before {
+    width: 100%;
+   
+}
+.navlinks ul li a:hover {
+    color: var(--qode-black-color);
+}
+
+
+.navlinks ul li:first-child{
+    background-color: white;
+}
+.navlinks ul li:first-child a{
+    color: var(--qode-dark-color);
+    padding: 1px 5px;
+}
+.spinner-icon svg{
+    fill: var(--qode-white-color);
+    transition: transform 0.8s ease;
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.spinner-icon svg:hover {
+    transform: rotate(360deg);
+}
+

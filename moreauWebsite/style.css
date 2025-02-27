@@ -1,0 +1,60 @@
+:root {
+    --qode-main-color: #3b44cd;
+    --qode-text-color: #171717;
+    --qode-heading-color: #171717;
+    --qode-white-color: #fff;
+    --qode-black-color: #000;
+    --qode-gray-color: #b1b1b1;
+    --qode-dark-color: #171717;
+    --qode-background-color: #fff;
+    --qode-background-light-color: #f5f5f5;
+    --qode-background-black-color: #000;
+    --qode-background-dark-color: #171717;
+    --qode-text-bg-revert-color: #fff;
+    --qode-heading-bg-revert-color: #fff;
+    --qode-border-color: #e2e2e2;
+    --qode-header-light-color: #ffffff;
+    --qode-header-light-hover-color: #b1b1b1;
+    --qode-header-dark-color: #171717;
+    --qode-header-dark-hover-color: #3d3d3d;
+    --qode-header-height: 96px;
+    --qode-top-bar-height: 0px;
+    --qode-admin-bar-height: 0px;
+    --qode-height-custom-offset: 0px;
+    --qode-mobile-header-height: 70px
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+/******************* general css *********************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--qode-background-dark-color);
+    color: var(--qode-white-color);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    color: var(--qode-white-color);
+}
+li{
+    list-style: none;
+}
+/******************* general css *********************/
+
+
