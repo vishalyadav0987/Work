@@ -99,3 +99,23 @@
     font-family: 'IBM Plex Mono', sans-serif;
     font-size: 14px;
 }
+
+/*------------------------- RESPONSIVE CSS -------------------------*/
+@media (max-width:1000px) {
+    .all-test-cards{
+        max-width: 100%;
+        
+    }
+    .testimonials-card{
+        padding: 0 20px;
+    }
+    .testimonials-text p{
+        font-size: 24px;
+    }
+}
+
+@media (max-width:880px) {
+    .testimonials-card{
+        flex-direction: column;
+    }
+}

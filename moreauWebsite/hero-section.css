@@ -36,7 +36,7 @@
     width: 100%;
 }
 
-.hero-container .top-heading{
+.hero-container .top-heading {
     width: 100%;
     display: flex;
     align-items: center;
@@ -48,14 +48,15 @@
 .hero-container .top-heading h1 {
     width: 100%;
     text-align: center;
-    font-size: 244px;
+    font-size: 17vw;
     font-family: monospace;
     text-transform: uppercase;
     letter-spacing: -7px;
+    font-weight: 900;
 
 }
 
-.hero-container .hero-image-text{
+.hero-container .hero-image-text {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -65,7 +66,7 @@
 }
 
 
-.hero-image-text p:first-child{
+.hero-image-text p:first-child {
     font-family: sans-serif;
     max-width: 28%;
     letter-spacing: 1px;
@@ -73,7 +74,7 @@
     margin-top: 230px;
 }
 
-.hero-image-text img{
+.hero-image-text img {
     position: absolute;
     left: 26%;
     top: 50%;
@@ -84,35 +85,39 @@
     0% {
         transform: translateY(0);
     }
+
     50% {
-        transform: translateY(-10px); /* Move slightly up */
+        transform: translateY(-10px);
+        /* Move slightly up */
     }
+
     100% {
         transform: translateY(0);
     }
 }
 
 
-.hero-image-text p:last-child{
+.hero-image-text p:last-child {
     display: flex;
     flex-direction: column;
     align-items: end;
     margin-top: 230px;
 }
 
-.hero-image-text p:last-child span:nth-child(1){
+.hero-image-text p:last-child span:nth-child(1) {
     font-family: sans-serif;
     letter-spacing: 1px;
     font-size: 17px;
-    
+
 }
-.hero-image-text p:last-child span:nth-child(2){
+
+.hero-image-text p:last-child span:nth-child(2) {
     text-transform: uppercase;
     font-family: sans-serif;
     font-size: 14px;
 }
 
-.social-name{
+.social-name {
     display: flex;
     align-items: center;
     gap: 48px;
@@ -133,30 +138,203 @@
     pointer-events: none;
     mix-blend-mode: difference;
     background: radial-gradient(circle, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0.1) 100%);
-filter: blur(25px);
-box-shadow: 0 0 120px 40px rgba(255, 255, 255, 0.4);
+    filter: blur(25px);
+    box-shadow: 0 0 120px 40px rgba(255, 255, 255, 0.4);
     filter: blur(30px);
     opacity: 1;
     transition: left 0.5s ease-out, top 0.5s ease-out, opacity 1.5s ease-in-out;
     animation: upDown 10s ease-in-out infinite;
     z-index: 9999;
-  }
+}
 
-  @keyframes upDown {
+@keyframes upDown {
     0% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-      transform: translateY(-16px);
+        transform: translateY(-16px);
     }
 
     100% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-  }
+}
 
 
 
 
 /*------------Hero Section----------------*/
+
+
+/*---------------------------------  RESPONSIVE CSS -------------------------------------*/
+@media only screen and (max-width: 1200px) {
+    .hero-container .top-heading {
+        top: -60px;
+
+    }
+
+    .hero-image-text img {
+        left: 22%;
+    }
+
+    .hero-container .hero-image-text {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 1008px) {
+    .hero-container .top-heading {
+        top: -36px;
+
+    }
+
+    .hero-image-text img {
+        width: 45vw;
+        left: 26%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    .hero-image-text img {
+        width: 450px;
+        height: 383px;
+        left: 24%;
+    }
+
+    .hero-image-text p:last-child,
+    .hero-image-text p:first-child {
+        margin-top: 170px;
+        font-size: 15px;
+    }
+
+    .hero-image-text p:last-child span:nth-child(1) {
+        font-size: 16px;
+    }
+
+    .hero-image-text p:last-child span:nth-child(2) {
+        font-size: 13px;
+    }
+
+}
+
+@media only screen and (max-width: 848px) {
+    .hero-image-text img {
+        width: 420px;
+        height: 360px;
+    }
+}
+@media only screen and (max-width: 828px) {
+    .hero-image-text p:last-child,
+    .hero-image-text p:first-child {
+        margin-top: 170px;
+        font-size: 14px;
+    }
+
+    .hero-image-text p:last-child span:nth-child(1) {
+        font-size: 14px;
+    }
+
+    .hero-image-text p:last-child span:nth-child(2) {
+        font-size: 12px;
+    }
+    .hero-image-text img{
+        left: 22%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .hero-image-text p:first-child {
+        display: none;
+    }
+
+    .hero-image-text p:last-child span:nth-child(1) {
+        font-size: 14px;
+    }
+
+    .hero-image-text p:last-child span:nth-child(2) {
+        font-size: 10px;
+    }
+    .hero-image-text img{
+        left: 20%;
+    }
+    .hero-container .hero-image-text{
+        justify-content: flex-end;
+    }
+}
+
+@media only screen and (max-width: 735px){
+    .hero-image-text img{
+        left: 15%;
+        width: 380px;
+        height: 340px;
+    }
+}
+
+/*--------- Here for another device ------------*/
+
+
+@media only screen and (max-width: 680px){
+    .hero-container .top-heading{
+        top: 110px;
+    }
+    .hero-image-text img{
+        top: 230px;
+    }
+    .hero-image-text p:last-child{
+        position: absolute;
+        top: -150px;
+        left: 10px;
+        align-items: flex-start;
+    }
+
+    .hero-image-text p:last-child span:nth-child(1) {
+        font-size: 17px;
+    }
+
+    .hero-image-text p:last-child span:nth-child(2) {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .hero-container .top-heading h1{
+        font-size: 19vw;
+    }
+    .hero-image-text img{
+        left: 11%;
+    }
+}
+@media only screen and (max-width: 532px){
+    .hero-image-text img{
+        left: 8%;
+    }
+}
+@media only screen and (max-width: 500px){
+    .hero-image-text img{
+        width: 300px;
+        height: 300px;
+        top:210px;
+        left: 12%;
+    }
+}
+@media only screen and (max-width: 400px){
+    .hero-container .top-heading h1{
+        font-size: 20vw;
+    }
+    .hero-image-text img{
+        top:196px;
+    }
+}
+@media only screen and (max-width: 375px){
+    .hero-image-text img{
+       left: 5%;
+    }
+}
+@media only screen and (max-width: 368px){
+    .hero-image-text img{
+        left: 0;
+        top: 190px;
+    }
+}
+/*---------------------------------  RESPONSIVE CSS -------------------------------------*/

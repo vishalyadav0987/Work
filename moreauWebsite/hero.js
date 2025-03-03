@@ -195,3 +195,107 @@ textOnImage.addEventListener('mouseleave', () => {
 });
 
 /*----------text on image Animation --------------*/
+
+
+
+/*---------- Corsel Js --------------*/
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselContainer = document.querySelector('.all-coursel-here');
+    const carouselItems = document.querySelectorAll('.coursel');
+    
+
+    const itemWidth = carouselItems[0].offsetWidth + parseInt(getComputedStyle(carouselItems[0]).marginRight);
+    let isAnimating = false;
+
+    function shiftRight() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        carouselContainer.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        carouselContainer.style.transform = `translateX(-${itemWidth+62}px)`;
+
+        setTimeout(() => {
+            const firstItem = carouselContainer.firstElementChild;
+            carouselContainer.appendChild(firstItem);
+
+            carouselContainer.style.transition = 'none';
+            carouselContainer.style.transform = 'translateX(0)';
+            isAnimating = false;
+        }, 600);
+    }
+
+    function shiftLeft() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const lastItem = carouselContainer.lastElementChild;
+        carouselContainer.prepend(lastItem);
+
+        carouselContainer.style.transition = 'none';
+        carouselContainer.style.transform = `translateX(-${itemWidth}px)`;
+
+        setTimeout(() => {
+            carouselContainer.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+            carouselContainer.style.transform = 'translateX(0)';
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, 600);
+        }, 10);
+    }
+
+    document.querySelector('.prev').addEventListener('click', shiftLeft);
+    document.querySelector('.next').addEventListener('click', shiftRight);
+});
+
+
+
+/*---------- Corsel Js --------------*/
+
+
+
+
+
+
+/*---------- HERO ANIMATION --------------*/
+
+    // Framer Motion-like intro animation using GSAP
+    gsap.from(".top-heading h1", {
+        opacity: 0,
+        y: -500,
+        duration: 1.5,
+        ease: "power2.out"
+    });
+
+    window.addEventListener("load", function() {
+        gsap.from(".hero-image-text img", {
+            opacity: 0,
+            scale: 0.5,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+    });
+    
+    
+
+    gsap.from(".hero-image-text p:nth-child(1)", {
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        stagger: 0.3
+    });
+    gsap.from(".hero-image-text p:nth-child(3)", {
+        opacity: 0,
+        x: 100,
+        duration: 1,
+        stagger: 0.3
+    });
+
+    gsap.from(".social-name a", {
+        opacity: 0,
+        x: -100,
+        duration: 1,
+        stagger: 0.2,
+        delay: 0.5
+    });
+/*---------- HERO ANIMATION --------------*/

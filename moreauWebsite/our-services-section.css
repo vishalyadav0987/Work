@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
 #our-services-section{
     background-color: var(--qode-background-dark-color);
     width: 100%;
     height: 100%;
     border-bottom: 1px solid white;
     padding-bottom: 60px;
+    overflow-x: hidden;
+
 }
 
 .services-container{
@@ -32,7 +43,7 @@
     font-size: 14px;text-transform: uppercase;
 }
 .services-heading{
-    width: 50%;
+    width: 100%;
     padding: 50px 80px;
     padding-bottom: 0px;
 }
@@ -47,3 +58,140 @@
     -ms-word-wrap: break-word;
     word-wrap: break-word;
 }
+
+
+.coursel-box-container{
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.coursel-controller{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    justify-content: flex-end;
+    position: absolute;
+    top: -60px;
+}
+
+.coursel-controller svg:hover{
+    cursor: pointer;
+}
+
+.all-coursel-here{
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    transition: transform 0.5s ease;
+}
+
+.all-coursel-here .coursel{
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    width: 450px;
+    gap: 22px;
+}
+
+.coursel-img{
+    width: 450px;
+    overflow: hidden;
+}
+
+.coursel-img img{
+    width: 110%;
+    object-fit: contain;
+    transform: translateX(-16px);
+    transition: all 0.4s ease-in-out;
+}
+
+.coursel-img img:hover{
+    transform: translateX(-10px);
+    cursor: pointer;
+}
+
+.coursel-date{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.coursel-date span{
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--qode-header-light-color);
+    font-family: "IBM Plex Mono", sans-serif;
+    font-size: 14px;
+    line-height: 1.21429em;
+    font-weight: 500;
+    text-transform: uppercase;
+
+}
+
+.coursel-date span:nth-child(2){
+    width: 6px;
+    height: 6px;
+    background-color: var(--qode-header-light-color);
+}
+
+.coursel-head{
+    font-family: 'Lexend',sans-serif;
+    font-size: 22px;
+    line-height: 28px;
+
+}
+
+.coursel-desc{
+    font-family: 'inter' sans-serif;
+    font-size: 17px;
+    line-height: 28px;
+
+}
+
+.read-btn{
+    font-family: "IBM Plex Mono", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/*--------------------------- RESPONSIVE CSS ---------------------------*/
+@media (max-width:1000px) {
+    .all-coursel-here .coursel,.coursel-img{
+        width: 400px;
+    }
+}
+
+@media (max-width:680px) {
+    .all-coursel-here .coursel, .coursel-img {
+        width: 100%;
+    }
+    .all-coursel-here .coursel{
+        flex-shrink: 0;
+    }
+    .services-heading{
+        padding: 30px 45px;
+    }
+    .services-heading h1{
+        font-size: 52px;
+
+    }
+}
+
+@media (max-width:500px){
+    .services-heading h1{
+        font-size: 36px;
+        padding: 0px;
+    }
+    .top-section-head{
+        padding-left: 20px !important;
+    }
+    .services-heading{
+        padding: 20px 25px;
+        padding-bottom: 40px;
+    }
+}
+/*--------------------------- RESPONSIVE CSS ---------------------------*/

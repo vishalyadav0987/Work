@@ -39,6 +39,12 @@
     padding: 4px 48px;
 }
 
+.logo-dark-white-mode{
+    position: relative;
+        z-index: 9999;
+        cursor: pointer;
+}
+
 .mode-box{
     display: flex;
     align-items: center;
@@ -111,3 +117,34 @@
     transform: rotate(360deg);
 }
 
+.logo-responsive-site{
+    display: none;
+}
+
+/*------------------------------- RESPONSIVE CSS -------------------------------*/
+
+@media (max-width: 1200px) {
+    .navlinks{
+        display: none ;
+    }
+    .logo-dark-white-mode{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        
+    }
+    .logo-responsive-site{
+        display: block;
+    }
+    .logo-responsive-site svg{
+        fill: var(--qode-background-color);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header-section{
+        padding:4px 8px;
+    }
+}
+/*------------------------------- RESPONSIVE CSS -------------------------------*/
