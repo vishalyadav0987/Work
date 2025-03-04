@@ -1,4 +1,113 @@
-.main-footer {
+#footer{
+    position: relative;
+    height: 100vh;
+    background-color: black;
+}
+
+.footer-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 36px;
+
+}
+
+.left-part,.right-part{
+    display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+}
+
+.left-part-upper , .right-part-upper{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.right-part-upper{
+    align-items: end;
+}
+
+.right-part-upper a:nth-child(3){
+    display: inline-block;
+    height: 2px;
+    width: 60%;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.left-part-upper a , .right-part-upper a{
+    display: inline-block;
+    font-size: 24px;
+}
+.left-part-lower svg{
+    fill: white;
+}
+
+/*  */
+
+.right-part-lower{
+    width: 100%;
+    left: 76%;
+}
+
+.absolute-part{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.absolute-part video{
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: difference;
+}
+
+
+@media (max-width:1023px) {
+    .left-part-upper a , .right-part-upper a{
+        font-size: 20px;
+    }
+    .right-part-lower{
+        font-size: 12px;
+        position: absolute;
+        top: 33%;
+        left: 47%;
+        transform: rotate(-90deg);
+    }
+    .footer-content{
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width:748px) {
+    .right-part-lower{
+        top: 50%;
+    }
+}
+@media (max-width:500px) {
+    .right-part-lower{
+        top: 66%;
+    }
+}
+@media (max-width:400px) {
+    .right-part-lower{
+        top: 72%;
+    }
+}
+@media (max-width:350px) {
+    .right-part-lower{
+        top: 76%;
+    }
+}
+
+
+
+
+
+/* .main-footer {
     background-color: var( --qode-background-dark-color);
     color: #fff;
     padding: 50px 5%;
@@ -63,10 +172,10 @@
 
 .subscribe button:hover {
     background-color: #3b44cd;
-}
+} */
 
 /* Responsive for smaller screens */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -85,7 +194,7 @@
 }
 .logo-main-footer img{
     width: 100%;
-}
+} */
 
 /*----------Cursor Animation --------------*/
 
@@ -118,6 +227,6 @@ box-shadow: 0 0 120px 40px rgba(255, 255, 255, 0.4);
     100% {
       transform: translateY(0);
     }
-  }
+  } 
 /*----------Cursor Animation --------------*/
 

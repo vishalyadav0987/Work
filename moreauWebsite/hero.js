@@ -2,7 +2,7 @@
 
 const body = document.querySelector('body');
 const spotlightElements = document.querySelectorAll('.spotlight, .port-spotlight, .link-spotlight, .footer-spotlight');
-const containers = document.querySelectorAll('#hero, .port-last-img, .video-link-section, .logo-main-footer');
+const containers = document.querySelectorAll('#hero, .port-last-img, .video-link-section, #footer');
 
 let lastMouseX = 0;
 let lastMouseY = 0;
@@ -299,3 +299,73 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.5
     });
 /*---------- HERO ANIMATION --------------*/
+
+
+
+
+/*---------- Menu --------------*/
+const menuContainer = document.querySelector('.menu-bar-container');
+const navLinks = document.querySelectorAll('.menu-bar-navlink li a');
+const crossIcon = document.querySelector('.cross-icon');
+
+let menuOpen = false;
+
+function openMenu() {
+    gsap.set(menuContainer, { visibility: 'visible' });
+
+    // Container grows from center
+    gsap.to(menuContainer, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out'
+    });
+
+    // Navlinks come down one by one
+    gsap.to(navLinks, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.2
+    });
+
+    gsap.to('.menu-bar-navlink', {
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.2
+    });
+
+    menuOpen = true;
+}
+
+function closeMenu() {
+    // Navlinks go back up
+    gsap.to(navLinks, {
+        opacity: 0,
+        y: -50,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'power3.in'
+    });
+
+    // Container shrinks back
+    gsap.to(menuContainer, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power3.in',
+        onComplete: () => gsap.set(menuContainer, { visibility: 'hidden' })
+    });
+
+    menuOpen = false;
+}
+
+// You can trigger openMenu() from your menu icon button click
+document.querySelector('.menu-bar svg').addEventListener('click', openMenu);  // <- attach to your actual menu icon
+
+// Close menu when cross icon is clicked
+crossIcon.addEventListener('click', closeMenu);
+
+/*---------- Menu --------------*/

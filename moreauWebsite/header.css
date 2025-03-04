@@ -32,7 +32,117 @@
     background-color: var(--qode-background-dark-color);
     transition: all 0.3s;
 }
-.header-section{
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 48px;
+}
+.header-logo svg {
+    fill: var(--qode-white-color);
+}
+.header-center .center-navlinks{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.header-center .center-navlinks li a{
+    font-size: 22px;
+}
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 9999;
+}
+.header-right .hi-part{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.header-right .hi-part span{
+    display: flex;
+    align-items: center;
+}
+
+.header-right .hi-part span:nth-child(1){
+    font-size: 22px;
+}
+
+.menu-bar{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+@media (max-width:1023px) {
+    .header-center .center-navlinks,.header-right .hi-part{
+        display: none;
+    }
+    .header-content{
+        padding: 12px 24px;
+    }
+}
+@media (max-width:680px){
+    .header-content{
+        padding: 12px 10px;
+    }
+}
+
+/* ------------- open navbar menu -----------------------*/
+.menu-bar-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rebeccapurple;
+    z-index: 99999;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+}
+.menu-bar-container .menu-bar-navlink{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.menu-bar-container .menu-bar-navlink li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    width: 100%;
+}
+.menu-bar-container .menu-bar-navlink li:hover{
+    background-color: #171717;
+    color: #fff;
+}
+.menu-bar-container .menu-bar-navlink li a{
+    display: inline-block;
+    font-size: 60px;
+    padding: 20px 24px;
+}
+.menu-bar-container .cross-icon{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    transition: all 0.5s ease;
+}
+.menu-bar-container .cross-icon:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+
+/* ------------- open navbar menu -----------------------*/
+
+
+/* .header-section{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -119,11 +229,11 @@
 
 .logo-responsive-site{
     display: none;
-}
+} */
 
 /*------------------------------- RESPONSIVE CSS -------------------------------*/
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .navlinks{
         display: none ;
     }
@@ -146,5 +256,5 @@
     .header-section{
         padding:4px 8px;
     }
-}
+} */
 /*------------------------------- RESPONSIVE CSS -------------------------------*/
