@@ -1,7 +1,8 @@
 #footer{
     position: relative;
     height: 100vh;
-    background-color: black;
+    /* background-color: black; */
+    background-color: var(--qode-background-dark-color);
 }
 
 .footer-content{
@@ -33,7 +34,7 @@
 .right-part-upper a:nth-child(3){
     display: inline-block;
     height: 2px;
-    width: 60%;
+    width: 40%;
     background-color: white;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -95,6 +96,20 @@
 @media (max-width:400px) {
     .right-part-lower{
         top: 72%;
+    }
+    .absolute-part{
+        position: absolute;
+    width: 800px;
+    bottom: 0;
+    left: -50vw;
+    }
+}
+@media (max-width:364px) {
+    .absolute-part{
+        position: absolute;
+    width: 800px;
+    bottom: 0;
+    left: -60vw;
     }
 }
 @media (max-width:350px) {

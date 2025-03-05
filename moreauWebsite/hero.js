@@ -304,14 +304,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /*---------- Menu --------------*/
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);  // Red (0-255)
+    const g = Math.floor(Math.random() * 256);  // Green (0-255)
+    const b = Math.floor(Math.random() * 256);  // Blue (0-255)
+    return `rgb(${r},${g},${b})`;
+}
+
+
+
+
 const menuContainer = document.querySelector('.menu-bar-container');
 const navLinks = document.querySelectorAll('.menu-bar-navlink li a');
 const crossIcon = document.querySelector('.cross-icon');
+const menuIcon = document.querySelector('.menu-bar');
+
 
 let menuOpen = false;
 
 function openMenu() {
     gsap.set(menuContainer, { visibility: 'visible' });
+    document.body.classList.add('no-scroll');
+    let color = getRandomColor();
+    menuContainer.style.backgroundColor = `${color}`;
+    menuIcon.classList.add('open');
 
     // Container grows from center
     gsap.to(menuContainer, {
@@ -360,10 +376,12 @@ function closeMenu() {
     });
 
     menuOpen = false;
+    document.body.classList.remove('no-scroll');
+    menuIcon.classList.remove('open');
 }
 
 // You can trigger openMenu() from your menu icon button click
-document.querySelector('.menu-bar svg').addEventListener('click', openMenu);  // <- attach to your actual menu icon
+document.querySelector('.menu-bar').addEventListener('click', openMenu);  // <- attach to your actual menu icon
 
 // Close menu when cross icon is clicked
 crossIcon.addEventListener('click', closeMenu);

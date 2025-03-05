@@ -55,6 +55,14 @@ a{
 li{
     list-style: none;
 }
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none; /* Optional - blocks touch scrolling on mobile */
+    overscroll-behavior: none; /* Optional - prevents bounce effect */
+}
+
 /******************* general css *********************/
 
 
